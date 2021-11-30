@@ -1,5 +1,6 @@
 from pandas import read_csv
 from sklearn.preprocessing import Normalizer
+import numpy as np
 
 #Load Files
 filename = 'train_imperson_without4n7_balanced_data.csv'
@@ -21,6 +22,7 @@ test_Y = array2[:,152]
 # Normalise X Variables
 scaler = Normalizer().fit(train_X)
 train_normX = scaler.transform(train_X)
+#np.savetxt("train_normX.csv", train_normX, delimiter=",")
 
 scaler2 = Normalizer().fit(test_X)
 test_normX = scaler2.transform(test_X)

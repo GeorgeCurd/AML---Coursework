@@ -9,8 +9,9 @@ model = ExtraTreesClassifier()
 model.fit(train_normX, train_Y)
 feat_importance = Series(model.feature_importances_, index=X_names)
 print(feat_importance.index)
-reduced = SelectFromModel(model, prefit=True, threshold=-np.inf, max_features=10)
+reduced = SelectFromModel(model, prefit=True, threshold=-np.inf, max_features=15)
 train_normX_ETC_FS = reduced.transform(train_normX)
+test_normX_ETC_FS = reduced.transform(test_normX)
 
 
 
